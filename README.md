@@ -16,9 +16,11 @@ to persist all the data in a sqlite db located at weather_predictor file
 For Running tests:
 ```sh
 python -m unittest ttests.test_calculations_helper
-```
-```sh
 python -m unittest tests.test_calculator
+python -m unittest tests.test_day_weather_model
+python -m unittest tests.test_planet_model
+python -m unittest tests.test_planet_services
+python -m unittest tests.test_db_connector
 ```
 
 To start Web Service:

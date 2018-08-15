@@ -2,7 +2,7 @@ import math
 
 class calculations_helper:
     '''
-    Instance designed to contain all the reusable calculation methods -- Expected 100% test coverage
+    Instance designed to contain all the reusable calculation methods -- Expected 9/9 methods to be testeables
     '''
 
     def __init__(self):
