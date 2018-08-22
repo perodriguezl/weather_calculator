@@ -3,6 +3,10 @@ import os
 from flask import Flask, request, jsonify, Response
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
+from services.model_services import sqlite_service
+from services.day_weather_services import day_weather_services
+from models.planet import planet
+from models.day_weather import day_weather
 
 
 db_connect = create_engine('sqlite:///weather_predictor')
@@ -26,12 +30,12 @@ class Clima(Resource):
         else:
             day = None
         if day != None:
-            conn = db_connect.connect() # connect to database
-            query = conn.execute("select * from day_weather where day = {0}".format(day))
-            for day in query.cursor:
+            dw = day_weather_services(sqlite_service(), day_weather)
+            calculated_weather = dw.get_day_wheater(day)
+            if calculated_weather:
                 return {
-                    'dia': day[0],
-                    'clima': day[1]
+                    'dia': calculated_weather.get_day(),
+                    'clima': calculated_weather.get_weather()
                 }
         return Response("{'error':'resource_not_found'}", status=404)
 

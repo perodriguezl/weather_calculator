@@ -20,6 +20,7 @@ python -m unittest tests.test_calculator
 python -m unittest tests.test_day_weather_model
 python -m unittest tests.test_planet_model
 python -m unittest tests.test_planet_services
+python -m unittest tests.test_day_weather_services
 python -m unittest tests.test_db_connector
 ```
 
