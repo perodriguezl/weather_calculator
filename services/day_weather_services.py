@@ -3,7 +3,7 @@ class day_weather_services():
     '''
     Day Weather Services Instance - 1/1 expected to be testeables
     @param object: db_connector
-    @param object: planet model
+    @param object: day_weather model
     '''
     def __init__(self, db_connector, day_weather_model):
         '''
